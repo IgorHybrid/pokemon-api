@@ -12,15 +12,23 @@ export default class PokemonAPIService {
 
     private async axiosCall<T>(config: AxiosRequestConfig) {
         try {
-            const { data } = await this.axiosInstance.request<T>(config);
-            return [null, data];
+            const { data, headers } = await this.axiosInstance.request<T>(config);
+            return [null, data, {headers}];
         } catch (error) {
-            return [error];
+            return [error, error.response?.status];
         }
     }
 
-    public async getPokemons() {
-        return this.axiosCall({method: 'get', url: 'generation/1'});
+    public async getGenerationData(generationID: number) {
+        return this.axiosCall({method: 'get', url: `generation/${generationID}`});
+    }
+
+    public async getPokemonSpecies(pokemonID: number) {
+        return this.axiosCall({method: 'get', url: `pokemon-species/${pokemonID}`});
+    }
+
+    public async getPokemonType(typeName: string) {
+        return this.axiosCall({method: 'get', url: `type/${typeName}`});
     }
 }
 
