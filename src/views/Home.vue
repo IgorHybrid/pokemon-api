@@ -1,14 +1,24 @@
 <template>
-    <p>Hello World!</p>
+    <ul>
+        <li>All</li>
+        <li v-for="elm in types" :key="elm">
+            <Filter :typeName="elm"/>
+        </li>
+    </ul>
+    <hr>
+    <ul>
+        <li v-for="elm in pokemons" :key="elm['order']">
+            <Card :pokemon="elm" />
+        </li>
+    </ul>
 </template>
 
-<script lang="ts">
-    import { defineComponent } from 'vue';
-    import { pokemonsApi } from '@/services/api';
+<script setup lang="ts">
+    import { storeToRefs } from 'pinia';
+    import Filter from '@/components/Filter.vue';
+    import Card from '@/components/Card.vue';
+    import { usePokemonStore } from '@/stores/pokemons'
 
-    export default defineComponent({
-        async mounted() {
-            console.log(await pokemonsApi.getPokemons());
-        }
-    });
+    const store = usePokemonStore();
+    const { types, pokemons } = storeToRefs(store);
 </script>
