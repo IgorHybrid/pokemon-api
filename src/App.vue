@@ -1,8 +1,5 @@
 <template>
-  <header>
-    
-  </header>
-
+  <Header />
   <main>
       <Home />
   </main>
@@ -10,6 +7,7 @@
 
 <script setup lang="ts">
   import Home from '@/views/Home.vue';
+  import Header from './components/Header.vue';
 </script>
 
 <style scoped>
