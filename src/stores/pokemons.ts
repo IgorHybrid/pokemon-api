@@ -19,7 +19,7 @@ export const usePokemonStore = defineStore('pokemon', () => {
         if (!filterType.value || filterType.value.length < 1) {
           return elm;
         }
-        return elm['type'].some(val => filterType.value.length > 0 && filterType.value.includes(val.name))
+        return elm['type'].some(val => filterType.value.includes(val.name))
     });
   });
 
