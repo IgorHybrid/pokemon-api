@@ -1,11 +1,39 @@
 <template>
     <header>
         <img src="@/assets/images/logo.svg">
-        <input placeholder="Filter by name">
+        <div>
+            <input v-model="filterValue" list="pokenames" placeholder="Filter podcasts..." />
+            <datalist id="pokenames">
+                <option v-for="item in store.filteredPokemon" :value="item['name']">{{ item['name'] }}</option>
+            </datalist>
+        </div>
     </header>
 </template>
 
-<script setup lang="ts"></script>
+<script lang="ts">
+    import { defineComponent } from 'vue';
+    import { usePokemonStore } from '@/stores/pokemons'
+
+    export default defineComponent({
+        setup() {
+            const store = usePokemonStore()
+            // **only return the whole store** instead of destructuring
+            return { store }
+        },
+        data() {
+            return {
+                filterValue: ""
+            }
+        },
+        watch: {
+            filterValue: {
+                handler(newValue) {
+                    this.store.setFilterName(newValue);
+                }
+            }
+        }
+    });
+</script>
 
 <style scoped>
     header {

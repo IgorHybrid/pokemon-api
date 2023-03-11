@@ -7,9 +7,15 @@ import type IType from '@/models/type.model'
 import { pokemonsApi } from '@/services/api'
 
 export const usePokemonStore = defineStore('pokemon', () => {
+  const filterName:Ref<string> = ref("");
   const pokemons:Ref<IPokemon[]> = ref([]);
   const types:Ref<string[]> = ref([]);
   const loading:Ref<Boolean> = ref(true);
+
+  const filteredPokemon = computed(() => {
+    const regex = new RegExp('.*' + filterName.value + '.*', 'gi');
+    return pokemons.value.filter(elm => elm['name'].match(regex));
+  });
 
   async function fetchPokemons () {
     try {
@@ -76,5 +82,9 @@ export const usePokemonStore = defineStore('pokemon', () => {
     }
   }
 
-  return { pokemons, types, loading, fetchPokemons }
+  function setFilterName (name:string) {
+    filterName.value = name;
+  }
+
+  return { types, loading, filteredPokemon, fetchPokemons, setFilterName }
 })

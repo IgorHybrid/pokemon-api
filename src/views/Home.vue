@@ -7,7 +7,7 @@
     </ul>
     <hr>
     <ul>
-        <li v-for="elm in pokemons" :key="elm['order']">
+        <li v-for="elm in filteredPokemon" :key="elm['order']">
             <Card :pokemon="elm" />
         </li>
     </ul>
@@ -20,5 +20,5 @@
     import { usePokemonStore } from '@/stores/pokemons'
 
     const store = usePokemonStore();
-    const { types, pokemons } = storeToRefs(store);
+    const { types, filteredPokemon } = storeToRefs(store);
 </script>
