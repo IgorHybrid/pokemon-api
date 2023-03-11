@@ -106,5 +106,5 @@ export const usePokemonStore = defineStore('pokemon', () => {
     
   }
 
-  return { types, loading, filteredPokemon, fetchPokemons, setFilterName, setFilterType }
+  return { types, loading, filterType, filteredPokemon, fetchPokemons, setFilterName, setFilterType }
 })
