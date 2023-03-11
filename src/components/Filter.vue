@@ -1,6 +1,6 @@
 <template>
     <img :src="getImageURL(typeName!)" :alt="typeName"/>
-    <label>{{ capitalizeFirstLetter(typeName!) }}</label>
+    <p>{{ capitalizeFirstLetter(typeName!) }}</p>
 </template>
 
 <script lang="ts">
