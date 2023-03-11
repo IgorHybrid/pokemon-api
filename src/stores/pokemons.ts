@@ -8,13 +8,19 @@ import { pokemonsApi } from '@/services/api'
 
 export const usePokemonStore = defineStore('pokemon', () => {
   const filterName:Ref<string> = ref("");
+  const filterType:Ref<string[]> = ref([]);
   const pokemons:Ref<IPokemon[]> = ref([]);
   const types:Ref<string[]> = ref([]);
   const loading:Ref<Boolean> = ref(true);
 
   const filteredPokemon = computed(() => {
     const regex = new RegExp('.*' + filterName.value + '.*', 'gi');
-    return pokemons.value.filter(elm => elm['name'].match(regex));
+    return pokemons.value.filter(elm => elm['name'].match(regex)).filter(elm => {
+        if (!filterType.value || filterType.value.length < 1) {
+          return elm;
+        }
+        return elm['type'].some(val => filterType.value.length > 0 && filterType.value.includes(val.name))
+    });
   });
 
   async function fetchPokemons () {
@@ -86,5 +92,19 @@ export const usePokemonStore = defineStore('pokemon', () => {
     filterName.value = name;
   }
 
-  return { types, loading, filteredPokemon, fetchPokemons, setFilterName }
+  function setFilterType (type: string) {
+    if (type) {
+      const index = filterType.value.indexOf(type);
+      if (index > -1) {
+        filterType.value.splice(index, 1);
+      } else {
+        filterType.value.push(type);
+      }
+    } else {
+      filterType.value = [];
+    }
+    
+  }
+
+  return { types, loading, filteredPokemon, fetchPokemons, setFilterName, setFilterType }
 })

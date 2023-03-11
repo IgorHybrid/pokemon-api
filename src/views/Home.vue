@@ -1,7 +1,7 @@
 <template>
     <ul>
-        <li>All</li>
-        <li v-for="elm in types" :key="elm">
+        <li @click="store.setFilterType('')">All</li>
+        <li v-for="elm in types" :key="elm" @click="store.setFilterType(elm)">
             <Filter :typeName="elm"/>
         </li>
     </ul>
