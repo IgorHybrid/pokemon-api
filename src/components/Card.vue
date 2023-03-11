@@ -1,6 +1,6 @@
 <template>
     <h5>#{{ pokemon!["order"] }}</h5>
-    <h1> {{ pokemon!["name"] }}</h1>
+    <h1> {{ pokemon!["name"].toUpperCase() }}</h1>
     <img :src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon!['id']}.svg`"/>
     <div>
         <img v-for="elm in pokemon!['type']" :src="getImageURL(elm['name'])"/>
