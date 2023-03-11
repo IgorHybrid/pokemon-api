@@ -2,7 +2,7 @@
     <header>
         <img src="@/assets/images/logo.svg">
         <div>
-            <input v-model="filterValue" list="pokenames" placeholder="Filter podcasts..." />
+            <input v-model="filterValue" list="pokenames" placeholder="Filter by name..." />
             <datalist id="pokenames">
                 <option v-for="item in store.filteredPokemon" :value="item['name']">{{ item['name'] }}</option>
             </datalist>
@@ -40,12 +40,22 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding-bottom: 2em;
+        padding-bottom: 3em;
         background-color: var(--vt-c-black-soft);
     }
 
     img {
         width: 350px;
         height: 200px;
+    }
+
+    input {
+        width: 350px;
+        height: 40px;
+        border-radius: 25px;
+        box-shadow:
+        0 0 0 2px black,
+        0 0 0 4px white;
+        padding-left: 20px; 
     }
 </style>
