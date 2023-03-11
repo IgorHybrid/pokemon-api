@@ -17,3 +17,19 @@
         }
     });
 </script>
+
+<style scoped>
+    img, p {
+        margin: 1%;
+    }
+
+    img {
+        width: 25px;
+        height: 25px;
+    }
+
+    p {
+        width: 50%;
+        padding-left: 5%;
+    }
+</style>

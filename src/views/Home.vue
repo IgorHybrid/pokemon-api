@@ -29,3 +29,32 @@
     const store = usePokemonStore();
     const { types, filterType, filteredPokemon } = storeToRefs(store);
 </script>
+
+<style scoped>
+    ul {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+
+    .types li {
+        flex: 1 0 calc(10% - 5px);
+        height: 50px;
+        margin: 1%;
+        border-radius: 25px;
+        background-color: #bfbfbf;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    .types .selected {
+        border-style: solid;
+        border-width: 2px;
+        border-color: #69bca7;
+        background-color: #BAF8EB;
+    }
+
+</style>
