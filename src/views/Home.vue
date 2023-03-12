@@ -75,6 +75,7 @@
     .cards li {
         margin: 2%;
         width: 15%;
+        height: 170px;
         border-radius: 10px;
         padding-bottom: 15px;
         border-width: 2px;
