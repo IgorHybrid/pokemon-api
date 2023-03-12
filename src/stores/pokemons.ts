@@ -69,12 +69,15 @@ export const usePokemonStore = defineStore('pokemon', () => {
           }
         });
 
+        //White color is too light for the app
+        const color = pokemonDetails["color"].name === 'white' ? '#f4f0d2' : pokemonDetails["color"].name;
+
         return {
           id,
           order: pokemonDetails["order"], 
           name,
           img: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`,
-          color: pokemonDetails["color"].name,
+          color,
           type: typeList.sort((a, b) => {return a.slot - b.slot})
         }
       }));
