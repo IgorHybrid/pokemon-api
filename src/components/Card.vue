@@ -35,7 +35,7 @@
     }
     .up img {
         position: relative;
-        left: 20%;
+        left: 25%;
         width: 100px;
         height: 100px;
     }
