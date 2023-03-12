@@ -79,6 +79,12 @@
         padding-bottom: 15px;
         border-width: 2px;
         border-style: solid;
+        opacity: 0.5;
+        transition: opacity 1s;
+    }
+
+    .cards li:hover {
+        opacity: 1;
     }
 
 </style>
