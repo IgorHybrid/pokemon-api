@@ -12,9 +12,11 @@
             <Filter :typeName="elm"/>
         </li>
     </ul>
-    <hr>
     <ul class="cards">
-        <li v-for="elm in filteredPokemon" :key="elm['order']">
+        <li v-for="elm in filteredPokemon" 
+            :key="elm['order']"
+            :style="{'border-color': setDarkerColor(elm['color']) , 'background-color': setBackgroundColor(elm['color'])}" 
+        >
             <Card :pokemon="elm" />
         </li>
     </ul>
@@ -25,6 +27,8 @@
     import Filter from '@/components/Filter.vue';
     import Card from '@/components/Card.vue';
     import { usePokemonStore } from '@/stores/pokemons'
+
+    import { setBackgroundColor, setDarkerColor } from '@/utils'
 
     const store = usePokemonStore();
     const { types, filterType, filteredPokemon } = storeToRefs(store);
