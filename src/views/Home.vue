@@ -5,7 +5,7 @@
         >   
             <p>All</p>
         </li>
-        <li v-for="elm in types" :key="elm" 
+        <li v-for="elm in types" :key="elm"
             @click="store.setFilterType(elm)"
             :class="filterType.includes(elm) ? 'selected': ''"
         >
@@ -59,6 +59,20 @@
         border-width: 2px;
         border-color: #69bca7;
         background-color: #BAF8EB;
+    }
+
+    .cards {
+        margin-left: 4%;
+        justify-content: stretch
+    }
+
+    .cards li {
+        margin: 2%;
+        width: 15%;
+        border-radius: 10px;
+        padding-bottom: 15px;
+        border-width: 2px;
+        border-style: solid;
     }
 
 </style>
