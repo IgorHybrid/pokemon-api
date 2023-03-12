@@ -42,10 +42,16 @@
         flex-direction: row;
     }
 
+    .types {
+        padding-top: 20px;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
     .types li {
-        flex: 1 0 calc(10% - 5px);
+        flex: 1 0 calc(11% - 5px);
         height: 50px;
-        margin: 1%;
+        margin: 0.5%;
         border-radius: 25px;
         background-color: #bfbfbf;
         display: flex;
