@@ -1,4 +1,4 @@
 export default interface IType {
-    name: string
-    slot: number
+  name: string
+  slot: number
 }

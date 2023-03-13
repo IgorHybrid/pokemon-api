@@ -1,35 +1,36 @@
 <template>
-    <img :src="getImageURL(typeName!)" :alt="typeName"/>
-    <p>{{ capitalizeFirstLetter(typeName!) }}</p>
+  <img :src="getImageURL(typeName!)" :alt="typeName" />
+  <p>{{ capitalizeFirstLetter(typeName!) }}</p>
 </template>
 
 <script lang="ts">
-    import { defineComponent } from 'vue';
-    import { getImageURL, capitalizeFirstLetter } from '@/utils';
+import { defineComponent } from 'vue'
+import { getImageURL, capitalizeFirstLetter } from '@/utils'
 
-    export default defineComponent({
-        props: {
-            typeName: String
-        },
-        methods: {
-            getImageURL,
-            capitalizeFirstLetter
-        }
-    });
+export default defineComponent({
+  props: {
+    typeName: String
+  },
+  methods: {
+    getImageURL,
+    capitalizeFirstLetter
+  }
+})
 </script>
 
 <style scoped>
-    img, p {
-        margin: 1%;
-    }
+img,
+p {
+  margin: 1%;
+}
 
-    img {
-        width: 25px;
-        height: 25px;
-    }
+img {
+  width: 25px;
+  height: 25px;
+}
 
-    p {
-        width: 50%;
-        padding-left: 5%;
-    }
+p {
+  width: 50%;
+  padding-left: 5%;
+}
 </style>
