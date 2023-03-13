@@ -9,7 +9,7 @@
             @click="store.setFilterType(elm)"
             :class="filterType.includes(elm) ? 'selected': ''"
         >
-            <Filter :typeName="elm"/>
+            <Filter :typeName="elm" />
         </li>
     </ul>
     <ul class="cards">
@@ -17,15 +17,15 @@
             :key="elm['order']"
             :style="{'border-color': setDarkerColor(elm['color']) , 'background-color': setBackgroundColor(elm['color'])}" 
         >
-            <Card :pokemon="elm" />
+            <Card :pokemon="elm"/>
         </li>
     </ul>
 </template>
 
 <script setup lang="ts">
     import { storeToRefs } from 'pinia';
-    import Filter from '@/components/Filter.vue';
-    import Card from '@/components/Card.vue';
+    import Filter from '@/components/FilterComponent.vue';
+    import Card from '@/components/CardComponent.vue';
     import { usePokemonStore } from '@/stores/pokemons'
 
     import { setBackgroundColor, setDarkerColor } from '@/utils'

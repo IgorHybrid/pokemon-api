@@ -8,7 +8,7 @@
             {{ pokemon!["name"].toUpperCase() }}
         </p>
         <div :class="pokemon!['type'].length > 1 ? 'two-type' : 'one-type'">
-            <img v-for="elm in pokemon!['type']" :src="getImageURL(elm['name'])"/>
+            <img v-for="elm in pokemon!['type']" :src="getImageURL(elm['name'])" :key="elm['name']"/>
         </div>
     </div>
 </template>

@@ -4,7 +4,9 @@
         <div>
             <input v-model="filterValue" list="pokenames" placeholder="Filter by name..." />
             <datalist id="pokenames">
-                <option v-for="item in store.filteredPokemon" :value="item['name']">{{ item['name'] }}</option>
+                <option v-for="item in store.filteredPokemon" :value="item['name']" :key="item['name']">
+                    {{ item['name'] }}
+                </option>
             </datalist>
         </div>
     </header>

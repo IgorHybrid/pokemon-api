@@ -10,8 +10,8 @@
   import { onMounted } from 'vue';
   import { storeToRefs } from 'pinia';
   
-  import Home from '@/views/Home.vue';
-  import Header from '@/components/Header.vue';
+  import Home from '@/views/HomeView.vue';
+  import Header from '@/components/HeaderComponent.vue';
   import { usePokemonStore }from '@/stores/pokemons';
 
   const store = usePokemonStore(); 
